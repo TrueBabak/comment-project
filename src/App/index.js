@@ -1,9 +1,10 @@
 import React from "react";
+import Web from "../Components/web";
 
 const App = () => {
   return (
     <div>
-      <div>App</div>
+      <Web />
     </div>
   );
 };
