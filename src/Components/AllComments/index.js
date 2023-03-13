@@ -1,10 +1,10 @@
 import React from "react";
 import Comment from "./Comment";
 
-const AllComments = () => {
+const AllComments = ({ id }) => {
   return (
     <div>
-      <Comment />
+      <Comment id={id} />
     </div>
   );
 };

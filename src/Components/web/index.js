@@ -16,7 +16,7 @@ const Web = () => {
         <Loading color={"#654fef"} />
       ) : (
         Comment.map((c) => {
-          return <AllComments key={c.id} />;
+          return <AllComments key={c.id} id={c.id} />;
         })
       )}
     </div>
