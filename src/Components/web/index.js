@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import AllComments from "../AllComments";
 import Loading from "../Common/LoadingComponets";
+import { Context } from "../Context";
 //setComment(res.data.slice(0, 4))
 const Web = () => {
-  const [Comment, setComment] = useState(null);
+  const { Comment, setComment } = useContext(Context);
   useEffect(() => {
     axios.get("employees").then((res) => setComment(res.data));
   }, []);
