@@ -7,8 +7,8 @@ const Web = () => {
   const [Comment, setComment] = useState(null);
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/comments")
-      .then((res) => setComment(res.data.slice(0, 7)));
+      .get("http://localhost:3001/employees")
+      .then((res) => setComment(res.data));
   }, []);
   return (
     <div className="grid grid-cols-4 gap-4 w-5/6 m-auto bg-green-100 relative">
