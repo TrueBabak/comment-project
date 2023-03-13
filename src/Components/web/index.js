@@ -11,16 +11,12 @@ const Web = () => {
       .then((res) => setComment(res.data.slice(0, 7)));
   }, []);
   return (
-    <div className="">
+    <div className="grid grid-cols-4 gap-4 w-5/6 m-auto bg-green-100 relative">
       {!Comment ? (
-        <Loading />
+        <Loading color={"#654fef"} />
       ) : (
         Comment.map((c) => {
-          return (
-            <div className="grid grid-cols-4 gap-4 w-5/6 m-auto bg-green-100 ">
-              <AllComments key={c.id} />
-            </div>
-          );
+          return <AllComments key={c.id} />;
         })
       )}
     </div>
