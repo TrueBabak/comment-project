@@ -1,9 +1,10 @@
 import React from "react";
+import Comment from "./Comment";
 
 const AllComments = () => {
   return (
     <div>
-      <div>AllComments</div>
+      <Comment />
     </div>
   );
 };

@@ -1,17 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import AllComments from "../AllComments";
+//setComment(res.data.slice(0, 4))
 const Web = () => {
   const [Comment, setComment] = useState(null);
   useEffect(() => {
-    const { data } = axios
+    axios
       .get("https://jsonplaceholder.typicode.com/comments")
-      .then((res) => setComment(res));
+      .then((res) => setComment(res.data.slice(0, 7)));
   }, []);
-  if (Comment) {
-    console.log(Comment);
-  }
-  return <div>{!Comment ? <p>loading</p> : <p>loaded</p>}</div>;
+  return (
+    <div className="grid grid-cols-4 gap-4 w-5/6 m-auto bg-green-100">
+      {!Comment ? (
+        <p>loading</p>
+      ) : (
+        Comment.map((c) => {
+          return <AllComments key={c.id} />;
+        })
+      )}
+    </div>
+  );
 };
 
 export default Web;
