@@ -10,13 +10,22 @@ const Web = () => {
       .get("http://localhost:3001/employees")
       .then((res) => setComment(res.data));
   }, []);
+  console.log(Comment);
   return (
     <div className="grid grid-cols-4 gap-4 w-5/6 m-auto bg-green-100 relative">
       {!Comment ? (
         <Loading color={"#654fef"} />
       ) : (
         Comment.map((c) => {
-          return <AllComments key={c.id} id={c.id} />;
+          console.log(c.email);
+          return (
+            <AllComments
+              key={c.id}
+              id={c.id}
+              name={c.first_name}
+              lname={c.last_name}
+            />
+          );
         })
       )}
     </div>
