@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../Context";
 //BsTrashFill
 import { BsTrashFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import axios from "axios";
 
 const ShowSelectedComponent = () => {
-  const { SelectComment, RemoveCommentHandler } = useContext(Context);
+  const { SelectComment, RemoveCommentHandler, Comment, setComment } =
+    useContext(Context);
+  useEffect(() => {
+    axios.get("employees").then((res) => setComment(res.data));
+  }, [Comment]);
   return (
     <div className="w-5/6 min-h-[20vh] mt-10 text-lg mx-auto bg-[#2E4F4F] text-white rounded-xl px-4 py-2 shadow-md shadow-[#0E8388] flex flex-col justify-between relative">
       <div>
