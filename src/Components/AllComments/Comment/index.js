@@ -1,9 +1,8 @@
-import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Context } from "../../Context";
 
 const CommentComp = ({ detail }) => {
-  const { getIdHandler, SelectComment, setSelectComment } = useContext(Context);
+  const { getIdHandler } = useContext(Context);
   return (
     <div
       onClick={() => getIdHandler(detail.id)}

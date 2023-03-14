@@ -1,6 +1,5 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
-import EmptyComponent from "../Common/EmptyComponents";
+import { createContext, useState } from "react";
 
 export const ContextApi = {
   Comment: null,
