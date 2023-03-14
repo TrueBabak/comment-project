@@ -3,7 +3,7 @@ import ReactLoading from "react-loading";
 
 const Loading = ({ color }) => {
   return (
-    <div className="py-5 flex justify-center items-center absolute w-full h-[30vh]">
+    <div className="w-full h-[20vh] absolute top-1/2 left-1/2 pb-8">
       <ReactLoading type={"spin"} color={`${color}`} height={30} width={30} />
     </div>
   );

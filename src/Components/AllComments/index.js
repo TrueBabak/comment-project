@@ -10,14 +10,14 @@ const AllComments = () => {
     axios.get("employees").then((res) => setComment(res.data));
   }, []);
   return (
-    <div className="w-5/6 min-h-[8vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 py-2 shadow-md shadow-[#0E8388] flex justify-between grid grid-cols-4 gap-4">
+    <div className="w-5/6 min-h-[20vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 py-6 shadow-md shadow-[#0E8388] grid grid-cols-4 gap-4">
       {!Comment ? (
-        <Loading color={"2C3333"} />
+        <Loading color={"#CBE4DE"} />
       ) : (
         Comment.map((c) => {
           return (
             <div className="">
-              <CommentComp detail={c}/>
+              <CommentComp detail={c} />
             </div>
           );
         })
