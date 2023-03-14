@@ -23,10 +23,12 @@ const ContextsProvider = ({ children }) => {
     setSelectComment(userId);
     setCommentId(userId);
   };
-  const RemoveCommentHandler = () => {
+  const RemoveCommentHandler = async () => {
     console.log("removed");
     console.log(CommentId);
     axios.delete(`employees/${CommentId}`);
+    const { data } = await axios.get("employees");
+    setComment(data);
   };
   return (
     <Context.Provider
