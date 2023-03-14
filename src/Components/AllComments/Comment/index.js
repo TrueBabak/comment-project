@@ -1,8 +1,14 @@
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../../Context";
 
 const CommentComp = ({ detail }) => {
-  const { getIdHandler } = useContext(Context);
+  const { getIdHandler, SelectComment, setSelectComment } = useContext(Context);
+  useEffect(() => {
+    axios.get(`employees/${SelectComment}`).then((res) => {
+      setSelectComment(res.data);
+    });
+  }, [SelectComment]);
   return (
     <div
       onClick={() => getIdHandler(detail.id)}

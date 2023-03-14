@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Loading from "../Common/LoadingComponets";
 import { Context } from "../Context";
 import CommentComp from "./Comment";
@@ -17,7 +17,7 @@ const AllComments = () => {
         Comment.map((c) => {
           return (
             <div className="">
-              <CommentComp detail={c} />
+              <CommentComp detail={c}/>
             </div>
           );
         })

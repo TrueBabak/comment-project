@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import Loading from "../Common/LoadingComponets";
+import { Context } from "../Context";
 
-const SelectComment = () => {
+const SelectCommentComp = () => {
+  const { SelectComment, setSelectComment } = useContext(Context);
   return (
     <div>
-      <div>SelectComment</div>
+      <div>{SelectComment ? SelectComment.massage : <Loading />}</div>
     </div>
   );
 };
 
-export default SelectComment;
+export default SelectCommentComp;
