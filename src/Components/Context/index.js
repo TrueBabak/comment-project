@@ -7,6 +7,7 @@ export const ContextApi = {
   SelectComment: null,
   setSelectComment: () => {},
   getIdHandler: () => {},
+  RemoveCommentHandler: () => {},
 };
 export const Context = createContext(ContextApi);
 
@@ -17,6 +18,9 @@ const ContextsProvider = ({ children }) => {
   const getIdHandler = (userId) => {
     setSelectComment(userId);
   };
+  const RemoveCommentHandler = () => {
+    console.log("removed");
+  };
   return (
     <Context.Provider
       value={{
@@ -25,6 +29,7 @@ const ContextsProvider = ({ children }) => {
         getIdHandler,
         SelectComment,
         setSelectComment,
+        RemoveCommentHandler,
       }}
     >
       {children}
