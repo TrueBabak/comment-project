@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import EmptyComponent from "../Common/EmptyComponents";
 import Loading from "../Common/LoadingComponets";
 import { Context } from "../Context";
@@ -9,7 +9,7 @@ const AllComments = () => {
   const { Comment, setComment } = useContext(Context);
   useEffect(() => {
     axios.get("employees").then((res) => setComment(res.data));
-  }, [Comment]);
+  }, []);
   return (
     <div className="w-5/6 min-h-[15vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 shadow-md shadow-[#0E8388] grid grid-cols-4 gap-4 items-center">
       {!Comment ? (
