@@ -6,7 +6,7 @@ const Comment = ({ id, name, lname }) => {
   };
   return (
     <div onClick={() => getIdHandler(id)}>
-      <div className="bg-red-800 px-4 py-2 flex">
+      <div className="">
         <div> {name} </div>
         <div> {lname} </div>
       </div>
