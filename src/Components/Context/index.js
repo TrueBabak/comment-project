@@ -19,14 +19,15 @@ const ContextsProvider = ({ children }) => {
   const [Comment, setComment] = useState(null);
   const [CommentId, setCommentId] = useState(null);
   const [SelectComment, setSelectComment] = useState(null);
-  const getIdHandler = (userId) => {
-    setSelectComment(userId);
-    setCommentId(userId);
+  const getIdHandler = async (userId) => {
+    await axios.get(`employees/${userId}`).then((res) => {
+      setSelectComment(res.data);
+      setCommentId(res.data.id);
+    });
   };
   const RemoveCommentHandler = async () => {
-    console.log("removed");
-    console.log(CommentId);
-    axios.delete(`employees/${CommentId}`);
+    await axios.delete(`employees/${CommentId}`);
+    setSelectComment(null);
     const { data } = await axios.get("employees");
     setComment(data);
   };
