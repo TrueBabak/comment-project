@@ -3,26 +3,22 @@ import React, { useContext, useEffect } from "react";
 import Loading from "../Common/LoadingComponets";
 import { Context } from "../Context";
 import CommentComp from "./Comment";
-// <Comment id={id} name={name} lname={lname} />
 
-const AllComments = ({ id, name, lname }) => {
+const AllComments = () => {
   const { Comment, setComment } = useContext(Context);
   useEffect(() => {
     axios.get("employees").then((res) => setComment(res.data));
   }, []);
   return (
-    <div className="w-5/6 bg-[#082032] mx-auto">
+    <div className="w-5/6 min-h-[8vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 py-2 shadow-md shadow-[#0E8388] flex justify-between grid grid-cols-4 gap-4">
       {!Comment ? (
-        <Loading color={"deepskyblue"} />
+        <Loading color={"2C3333"} />
       ) : (
         Comment.map((c) => {
           return (
-            <CommentComp
-              key={c.id}
-              id={c.id}
-              name={c.first_name}
-              lname={c.last_name}
-            />
+            <div className="">
+              <CommentComp detail={c} />
+            </div>
           );
         })
       )}

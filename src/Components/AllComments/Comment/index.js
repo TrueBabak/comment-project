@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../Context";
 
-const Comment = ({ id, name, lname }) => {
-  const getIdHandler = (userId) => {
-    console.log(userId);
-  };
+const CommentComp = ({ detail }) => {
+  const { getIdHandler } = useContext(Context);
   return (
-    <div onClick={() => getIdHandler(id)}>
-      <div className="">
-        <div> {name} </div>
-        <div> {lname} </div>
-      </div>
+    <div
+      onClick={() => getIdHandler(detail.id)}
+      className="bg-[#2C3333] px-4 py-2 rounded-lg border border-[#0E8388] flex-wrap"
+    >
+      <div>Name: {detail.first_name} </div>
+      <div>Lastname: {detail.last_name} </div>
+      <div>Email: {detail.email} </div>
     </div>
   );
 };
 
-export default Comment;
+export default CommentComp;
