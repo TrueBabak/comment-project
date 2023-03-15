@@ -38,8 +38,19 @@ const ContextsProvider = ({ children }) => {
     await axios.post("employees", {
       ...UserObject,
     });
+    // updating all comment components
     const { data } = await axios.get("employees");
     setComment(data);
+
+    // clean input tag..
+
+    setUserObject({
+      first_name: "",
+      last_name: "",
+      email: "",
+      massage: "",
+    });
+    console.log(UserObject);
   };
   return (
     <Context.Provider

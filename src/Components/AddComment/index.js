@@ -2,13 +2,13 @@ import React, { useContext, useRef } from "react";
 import { Context } from "../Context";
 
 const AddComment = () => {
-  const name = useRef;
   const {
     NameChangeHandler,
     LastNameChangeHandler,
     EmailChangeHandler,
     MassageChangeHandler,
     createPost,
+    UserObject,
   } = useContext(Context);
   return (
     <div className="w-5/6 min-h-[15vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 shadow-md shadow-[#0E8388] mt-10 py-8 mb-10">
@@ -21,6 +21,7 @@ const AddComment = () => {
             placeholder="Enter Your Name.."
             onChange={(e) => NameChangeHandler(e)}
             maxLength="10"
+            value={UserObject.first_name}
           />
         </div>
         <div className="mb-3 py-2 border-b border-b-[#0e8388]">
@@ -31,6 +32,7 @@ const AddComment = () => {
             placeholder="Enter Your Last Name.."
             onChange={(e) => LastNameChangeHandler(e)}
             maxLength="10"
+            value={UserObject.last_name}
           />
         </div>
       </div>
@@ -42,6 +44,7 @@ const AddComment = () => {
             type="text"
             placeholder="Enter Your Email.."
             onChange={(e) => EmailChangeHandler(e)}
+            value={UserObject.email}
           />
         </div>
       </div>
@@ -52,6 +55,7 @@ const AddComment = () => {
           type="text"
           placeholder="Enter Your Email.."
           onChange={(e) => MassageChangeHandler(e)}
+          value={UserObject.massage}
         />
       </div>
       <div className="flex justify-center items-center">
