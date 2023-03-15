@@ -1,26 +1,14 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { Context } from "../Context";
 
 const AddComment = () => {
-  const [UserObject, setUserObject] = useState({});
-  const NameChangeHandler = (e) => {
-    setUserObject({ ...UserObject, first_name: e.target.value });
-  };
-  const LastNameChangeHandler = (e) => {
-    setUserObject({ ...UserObject, last_name: e.target.value });
-  };
-  const EmailChangeHandler = (e) => {
-    setUserObject({ ...UserObject, email: e.target.value });
-  };
-  const MassageChangeHandler = (e) => {
-    setUserObject({ ...UserObject, massage: e.target.value });
-  };
-  const createPost = () => {
-    axios.post("employees", {
-      ...UserObject,
-    });
-  };
-  console.log(UserObject);
+  const {
+    NameChangeHandler,
+    LastNameChangeHandler,
+    EmailChangeHandler,
+    MassageChangeHandler,
+    createPost,
+  } = useContext(Context);
   return (
     <div className="w-5/6 min-h-[15vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 shadow-md shadow-[#0E8388] mt-10 py-8">
       <div className="flex justify-between w-4/6 mx-auto">

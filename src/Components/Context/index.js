@@ -7,9 +7,16 @@ export const ContextApi = {
   CommentId: null,
   setCommentId: () => {},
   SelectComment: null,
+  UserObject: () => {},
+  setUserObject: null,
   setSelectComment: () => {},
   getIdHandler: () => {},
   RemoveCommentHandler: () => {},
+  NameChangeHandler: () => {},
+  LastNameChangeHandler: () => {},
+  EmailChangeHandler: () => {},
+  MassageChangeHandler: () => {},
+  createPost: () => {},
 };
 export const Context = createContext(ContextApi);
 
@@ -18,6 +25,7 @@ const ContextsProvider = ({ children }) => {
   const [Comment, setComment] = useState(null);
   const [CommentId, setCommentId] = useState(null);
   const [SelectComment, setSelectComment] = useState(null);
+  const [UserObject, setUserObject] = useState({});
   const getIdHandler = async (userId) => {
     await axios.get(`employees/${userId}`).then((res) => {
       setSelectComment(res.data);
@@ -30,6 +38,23 @@ const ContextsProvider = ({ children }) => {
     const { data } = await axios.get("employees");
     setComment(data);
   };
+  const NameChangeHandler = (e) => {
+    setUserObject({ ...UserObject, first_name: e.target.value });
+  };
+  const LastNameChangeHandler = (e) => {
+    setUserObject({ ...UserObject, last_name: e.target.value });
+  };
+  const EmailChangeHandler = (e) => {
+    setUserObject({ ...UserObject, email: e.target.value });
+  };
+  const MassageChangeHandler = (e) => {
+    setUserObject({ ...UserObject, massage: e.target.value });
+  };
+  const createPost = () => {
+    axios.post("employees", {
+      ...UserObject,
+    });
+  };
   return (
     <Context.Provider
       value={{
@@ -41,6 +66,13 @@ const ContextsProvider = ({ children }) => {
         SelectComment,
         setSelectComment,
         RemoveCommentHandler,
+        NameChangeHandler,
+        LastNameChangeHandler,
+        EmailChangeHandler,
+        MassageChangeHandler,
+        createPost,
+        UserObject,
+        setUserObject,
       }}
     >
       {children}
