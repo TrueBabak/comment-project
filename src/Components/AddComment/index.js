@@ -15,6 +15,11 @@ const AddComment = () => {
   const MassageChangeHandler = (e) => {
     setUserObject({ ...UserObject, massage: e.target.value });
   };
+  const createPost = () => {
+    axios.post("employees", {
+      ...UserObject,
+    });
+  };
   console.log(UserObject);
   return (
     <div className="w-5/6 min-h-[15vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 shadow-md shadow-[#0E8388] mt-10 py-8">
@@ -59,6 +64,14 @@ const AddComment = () => {
           placeholder="Enter Your Email.."
           onChange={(e) => MassageChangeHandler(e)}
         />
+      </div>
+      <div className="flex justify-center items-center">
+        <div
+          className="mx-auto border border-[#0E8388] rounded-xl px-4 py-2 cursor-pointer hover:bg-[#0E8388] transition-all duration-300 ease-in-out"
+          onClick={createPost}
+        >
+          Click
+        </div>
       </div>
     </div>
   );
