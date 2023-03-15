@@ -5,7 +5,7 @@ axios.defaults.baseURL = "http://localhost:3001/";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-[#CBE4DE] h-screen">
       <Web />
     </div>
   );

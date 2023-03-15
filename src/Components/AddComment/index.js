@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Context } from "../Context";
 
 const AddComment = () => {
+  const name = useRef;
   const {
     NameChangeHandler,
     LastNameChangeHandler,
@@ -10,7 +11,7 @@ const AddComment = () => {
     createPost,
   } = useContext(Context);
   return (
-    <div className="w-5/6 min-h-[15vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 shadow-md shadow-[#0E8388] mt-10 py-8">
+    <div className="w-5/6 min-h-[15vh] bg-[#2E4F4F] text-white mx-auto relative rounded-xl px-4 shadow-md shadow-[#0E8388] mt-10 py-8 mb-10">
       <div className="flex justify-between w-4/6 mx-auto">
         <div className="mb-3 py-2 border-b border-b-[#0e8388]">
           FirstName:{" "}

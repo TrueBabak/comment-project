@@ -1,0 +1,17 @@
+export const ContextApi = {
+  Comment: null,
+  setComment: () => {},
+  CommentId: null,
+  setCommentId: () => {},
+  SelectComment: null,
+  UserObject: () => {},
+  setUserObject: null,
+  setSelectComment: () => {},
+  getIdHandler: () => {},
+  RemoveCommentHandler: () => {},
+  NameChangeHandler: () => {},
+  LastNameChangeHandler: () => {},
+  EmailChangeHandler: () => {},
+  MassageChangeHandler: () => {},
+  createPost: () => {},
+};

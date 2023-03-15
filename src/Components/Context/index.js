@@ -1,23 +1,7 @@
 import axios from "axios";
 import { createContext, useState } from "react";
+import { ContextApi } from "./ContextData";
 
-export const ContextApi = {
-  Comment: null,
-  setComment: () => {},
-  CommentId: null,
-  setCommentId: () => {},
-  SelectComment: null,
-  UserObject: () => {},
-  setUserObject: null,
-  setSelectComment: () => {},
-  getIdHandler: () => {},
-  RemoveCommentHandler: () => {},
-  NameChangeHandler: () => {},
-  LastNameChangeHandler: () => {},
-  EmailChangeHandler: () => {},
-  MassageChangeHandler: () => {},
-  createPost: () => {},
-};
 export const Context = createContext(ContextApi);
 
 // Provider
@@ -50,10 +34,12 @@ const ContextsProvider = ({ children }) => {
   const MassageChangeHandler = (e) => {
     setUserObject({ ...UserObject, massage: e.target.value });
   };
-  const createPost = () => {
-    axios.post("employees", {
+  const createPost = async () => {
+    await axios.post("employees", {
       ...UserObject,
     });
+    const { data } = await axios.get("employees");
+    setComment(data);
   };
   return (
     <Context.Provider
