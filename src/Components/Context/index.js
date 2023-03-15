@@ -50,7 +50,6 @@ const ContextsProvider = ({ children }) => {
       email: "",
       massage: "",
     });
-    console.log(UserObject);
   };
   return (
     <Context.Provider
